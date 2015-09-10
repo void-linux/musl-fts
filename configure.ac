@@ -7,7 +7,9 @@ AC_INIT([fts], [1.1], [Jürgen Buchmüller <pullmoll@t-online.de>])
 AM_INIT_AUTOMAKE([1.15])
 
 AC_PROG_CC
-AC_PROG_RANLIB
+AC_PROG_LIBTOOL
+
+LT_INIT
 
 AC_CHECK_HEADERS(assert.h dirent.h errno.h fcntl.h stdlib.h string.h unistd.h sys/param.h sys/stat.h)
 
