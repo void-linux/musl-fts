@@ -6,6 +6,8 @@ AC_INIT([fts], [1.2], [pullmoll@t-online.de])
 
 AM_INIT_AUTOMAKE([1.15])
 
+AC_CONFIG_HEADER(config.h)
+
 AC_PROG_CC
 AC_PROG_LIBTOOL
 
