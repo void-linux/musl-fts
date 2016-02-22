@@ -56,6 +56,10 @@ __RCSID("$NetBSD: fts.c,v 1.48 2015/01/29 15:55:21 manu Exp $");
 #define MAX(a,b) ((a)>(b)?(a):(b))
 #endif
 
+#if !defined(UINT_MAX) && (HAVE_DECL_UINTMAX_MAX==1)
+#define UINT_MAX UINTMAX_MAX
+#endif
+
 static FTSENT	*fts_alloc(FTS *, const char *, size_t);
 static FTSENT	*fts_build(FTS *, int);
 static void	 fts_free(FTSENT *);
