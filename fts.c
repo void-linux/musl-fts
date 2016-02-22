@@ -37,6 +37,8 @@ __RCSID("$NetBSD: fts.c,v 1.48 2015/01/29 15:55:21 manu Exp $");
 #endif
 #endif /* LIBC_SCCS and not lint */
 
+#include "config.h"
+
 #include <sys/param.h>
 #include <sys/stat.h>
 
@@ -49,6 +51,10 @@ __RCSID("$NetBSD: fts.c,v 1.48 2015/01/29 15:55:21 manu Exp $");
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
+
+#if !defined(HAVE_DECL_MAX) || (HAVE_DECL_MAX==0)
+#define MAX(a,b) ((a)>(b)?(a):(b))
+#endif
 
 static FTSENT	*fts_alloc(FTS *, const char *, size_t);
 static FTSENT	*fts_build(FTS *, int);
