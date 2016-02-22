@@ -15,5 +15,16 @@ LT_INIT
 
 AC_CHECK_HEADERS(assert.h dirent.h errno.h fcntl.h stdlib.h string.h unistd.h sys/param.h sys/stat.h)
 
+AC_CHECK_DECLS([MAX], , , [
+#include <sys/param.h>
+	])
+
+AC_CHECK_FUNCS([dirfd])
+
+AC_CHECK_MEMBERS([DIR.dd_fd, DIR.d_fd],,,
+[#include <sys/types.h>
+#include <dirent.h>
+	])
+
 AC_CONFIG_FILES([Makefile musl-fts.pc])
 AC_OUTPUT
