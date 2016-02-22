@@ -19,6 +19,10 @@ AC_CHECK_DECLS([MAX], , , [
 #include <sys/param.h>
 	])
 
+AC_CHECK_DECLS([UINTMAX_MAX], , , [
+#include <limits.h>
+	])
+
 AC_CHECK_FUNCS([dirfd])
 
 AC_CHECK_MEMBERS([DIR.dd_fd, DIR.d_fd],,,
