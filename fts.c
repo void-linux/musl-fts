@@ -60,6 +60,15 @@ __RCSID("$NetBSD: fts.c,v 1.48 2015/01/29 15:55:21 manu Exp $");
 #define UINT_MAX UINTMAX_MAX
 #endif
 
+#if !defined(HAVE_DIRFD)
+#if defined(HAVE_DIR_DD_FD)
+#define dirfd(dirp)     ((dirp)->dd_fd)
+#endif
+#if defined(HAVE_DIR_D_FD)
+#define dirfd(dirp)     ((dirp)->d_fd)
+#endif
+#endif
+
 static FTSENT	*fts_alloc(FTS *, const char *, size_t);
 static FTSENT	*fts_build(FTS *, int);
 static void	 fts_free(FTSENT *);
